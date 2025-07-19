@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
-
+import Users from './getUsers/Users';
+import AddUser from './addUser/addUser';  
+import UpdateUser from './updateUser/updateUser';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'; 
 function App() {
+  const route=createBrowserRouter([
+
+{
+   path: '/',
+
+   
+    element: <Users />,},
+
+    {
+      path: '/addUser',
+      element: <AddUser />,
+    },
+  
+  
+  {
+
+    path: '/editUser/:email',
+    element: <UpdateUser />,
+  }])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+    <RouterProvider router={route} />
     </div>
   );
 }
